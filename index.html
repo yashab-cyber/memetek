@@ -116,8 +116,8 @@
         <p class="airdrop-sub">Be among the first to receive $MEMETEK tokens. Two ways to qualify — act fast!</p>
       </div>
       <div class="airdrop-grid">
-        <article class="airdrop-card airdrop-telegram">
-          <div class="airdrop-card-badge">DIRECT</div>
+        <article class="airdrop-card airdrop-telegram" id="cardTgAirdrop">
+          <div class="airdrop-card-badge" id="badgeTgAirdrop">DIRECT</div>
           <div class="airdrop-card-icon">🚀</div>
           <h3>Telegram Airdrop</h3>
           <p>First <strong>50 members</strong> who join our Telegram get a <strong>direct airdrop</strong>. No lottery — guaranteed tokens for early believers.</p>
@@ -126,11 +126,11 @@
             <li><span>2</span> Get the secret access code</li>
             <li><span>3</span> Fill the registration form</li>
           </ul>
-          <a class="button button-primary" href="airdrop-telegram.html">Claim Direct Airdrop <span>↗</span></a>
-          <div class="airdrop-spots">🔥 Only 50 spots — first come, first served</div>
+          <a class="button button-primary" id="btnTgAirdrop" href="airdrop-telegram.html">Claim Direct Airdrop <span>↗</span></a>
+          <div class="airdrop-spots" id="indexTgSpots">🔥 Only <span class="spots-num" id="indexTgNum">50</span> spots remaining — first come, first served</div>
         </article>
-        <article class="airdrop-card airdrop-random">
-          <div class="airdrop-card-badge">RANDOM</div>
+        <article class="airdrop-card airdrop-random" id="cardRdAirdrop">
+          <div class="airdrop-card-badge" id="badgeRdAirdrop">RANDOM</div>
           <div class="airdrop-card-icon">🎰</div>
           <h3>Community Airdrop</h3>
           <p><strong>1,000 lucky winners</strong> will be selected randomly from everyone who fills the form. Open to all community members!</p>
@@ -139,8 +139,8 @@
             <li><span>2</span> Follow us on X & Telegram</li>
             <li><span>3</span> Wait for the random draw</li>
           </ul>
-          <a class="button button-primary" href="airdrop-random.html">Enter Random Airdrop <span>↗</span></a>
-          <div class="airdrop-spots">🎲 1,000 random winners will be picked</div>
+          <a class="button button-primary" id="btnRdAirdrop" href="airdrop-random.html">Enter Random Airdrop <span>↗</span></a>
+          <div class="airdrop-spots" id="indexRdSpots">🎲 <span class="spots-num" id="indexRdNum">1,000</span> spots remaining — open to all</div>
         </article>
       </div>
     </section>

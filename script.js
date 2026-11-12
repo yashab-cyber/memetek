@@ -51,8 +51,25 @@ if ("IntersectionObserver" in window) {
 const SUPABASE_URL = "https://dmobvhevocjpryupnnqk.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRtb2J2aGV2b2NqcHJ5dXBubnFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ1MDU5NDAsImV4cCI6MjExMDA4MTk0MH0.mws9TBuCboXCCHs8ySNS2azsOPXHdka9pXxVy_XUnWw";
 
-// Minimal Supabase REST client (no SDK needed)
+// Minimal Supabase REST client
 const supabase = {
+  async getStats() {
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_airdrop_stats`, {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+          "Content-Type": "application/json"
+        }
+      });
+      if (!response.ok) return null;
+      return await response.json();
+    } catch {
+      return null;
+    }
+  },
+
   async insert(table, data) {
     const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
       method: "POST",
@@ -67,15 +84,103 @@ const supabase = {
 
     if (!response.ok) {
       const err = await response.json().catch(() => ({}));
-      // Check for unique constraint violations (duplicate entries)
-      if (response.status === 409 || (err.code === "23505")) {
+      if (response.status === 409 || err.code === "23505") {
         throw new Error("DUPLICATE");
+      }
+      if (err.message && err.message.includes("AIRDROP_FULL")) {
+        throw new Error("AIRDROP_FULL");
       }
       throw new Error(err.message || `HTTP ${response.status}`);
     }
     return { success: true };
   }
 };
+
+// ══════════════════════════════════════════
+// AIRDROP SPOTS & STATUS SYNC
+// ══════════════════════════════════════════
+async function syncAirdropStats() {
+  const stats = await supabase.getStats();
+  if (!stats) return;
+
+  // 1. Homepage counters & card statuses
+  const indexTgNum = document.getElementById("indexTgNum");
+  const indexTgSpots = document.getElementById("indexTgSpots");
+  const cardTgAirdrop = document.getElementById("cardTgAirdrop");
+  const btnTgAirdrop = document.getElementById("btnTgAirdrop");
+  const badgeTgAirdrop = document.getElementById("badgeTgAirdrop");
+
+  if (indexTgNum) {
+    indexTgNum.textContent = stats.telegram_remaining;
+    if (stats.telegram_remaining <= 0) {
+      if (indexTgSpots) indexTgSpots.innerHTML = "🔒 <strong>All 50 spots claimed</strong> — Closed";
+      if (cardTgAirdrop) cardTgAirdrop.classList.add("closed");
+      if (btnTgAirdrop) {
+        btnTgAirdrop.textContent = "Airdrop Closed 🔒";
+        btnTgAirdrop.setAttribute("href", "#airdrop");
+      }
+      if (badgeTgAirdrop) badgeTgAirdrop.textContent = "CLOSED";
+    }
+  }
+
+  const indexRdNum = document.getElementById("indexRdNum");
+  const indexRdSpots = document.getElementById("indexRdSpots");
+  const cardRdAirdrop = document.getElementById("cardRdAirdrop");
+  const btnRdAirdrop = document.getElementById("btnRdAirdrop");
+  const badgeRdAirdrop = document.getElementById("badgeRdAirdrop");
+
+  if (indexRdNum) {
+    indexRdNum.textContent = stats.random_remaining.toLocaleString();
+    if (stats.random_remaining <= 0) {
+      if (indexRdSpots) indexRdSpots.innerHTML = "🔒 <strong>All 1,000 spots filled</strong> — Closed";
+      if (cardRdAirdrop) cardRdAirdrop.classList.add("closed");
+      if (btnRdAirdrop) {
+        btnRdAirdrop.textContent = "Airdrop Closed 🔒";
+        btnRdAirdrop.setAttribute("href", "#airdrop");
+      }
+      if (badgeRdAirdrop) badgeRdAirdrop.textContent = "CLOSED";
+    }
+  }
+
+  // 2. Telegram airdrop page counter & gate/closed state
+  const tgSpotsBanner = document.getElementById("tgSpotsBanner");
+  const tgSpotsRemainingText = document.getElementById("tgSpotsRemainingText");
+  const tgClosed = document.getElementById("telegramClosed");
+  const codeGate = document.getElementById("codeGate");
+  const telegramForm = document.getElementById("telegramForm");
+
+  if (tgSpotsRemainingText) {
+    if (stats.telegram_remaining <= 0) {
+      if (tgSpotsBanner) tgSpotsBanner.classList.add("closed");
+      tgSpotsRemainingText.innerHTML = "🔒 All 50 spots claimed (0 remaining)";
+      if (codeGate) codeGate.style.display = "none";
+      if (telegramForm) telegramForm.style.display = "none";
+      if (tgClosed) tgClosed.style.display = "block";
+    } else {
+      tgSpotsRemainingText.innerHTML = `🔥 <strong>${stats.telegram_remaining}</strong> of ${stats.telegram_total} spots remaining`;
+    }
+  }
+
+  // 3. Random airdrop page counter & form/closed state
+  const rdSpotsBanner = document.getElementById("rdSpotsBanner");
+  const rdSpotsRemainingText = document.getElementById("rdSpotsRemainingText");
+  const randomForm = document.getElementById("randomForm");
+  const rdClosed = document.getElementById("randomClosed");
+
+  if (rdSpotsRemainingText) {
+    if (stats.random_remaining <= 0) {
+      if (rdSpotsBanner) rdSpotsBanner.classList.add("closed");
+      rdSpotsRemainingText.innerHTML = "🔒 All 1,000 spots filled (0 remaining)";
+      if (randomForm) randomForm.style.display = "none";
+      if (rdClosed) rdClosed.style.display = "block";
+    } else {
+      rdSpotsRemainingText.innerHTML = `🎲 <strong>${stats.random_remaining.toLocaleString()}</strong> of ${stats.random_total.toLocaleString()} spots remaining`;
+    }
+  }
+}
+
+// Initial fetch on load
+syncAirdropStats();
 
 // ══════════════════════════════════════════
 // AIRDROP CODE VERIFICATION
@@ -134,12 +239,18 @@ if (submitTelegramBtn) {
       const success = document.getElementById("telegramSuccess");
       success.style.display = "block";
       success.classList.add("visible");
+
+      // Sync spot countdown
+      syncAirdropStats();
     } catch (err) {
       submitTelegramBtn.disabled = false;
       submitTelegramBtn.innerHTML = "Submit Registration <span>→</span>";
 
       if (err.message === "DUPLICATE") {
         alert("⚠️ This SOL address or Telegram username has already been registered for the direct airdrop.");
+      } else if (err.message === "AIRDROP_FULL") {
+        alert("🔒 Sorry! All 50 spots have already been claimed.");
+        syncAirdropStats();
       } else {
         alert("❌ Something went wrong. Please try again.\n\n" + err.message);
       }
@@ -178,12 +289,18 @@ if (submitRandomBtn) {
       const success = document.getElementById("randomSuccess");
       success.style.display = "block";
       success.classList.add("visible");
+
+      // Sync spot countdown
+      syncAirdropStats();
     } catch (err) {
       submitRandomBtn.disabled = false;
       submitRandomBtn.innerHTML = "Submit Entry <span>→</span>";
 
       if (err.message === "DUPLICATE") {
         alert("⚠️ This SOL address or Telegram username has already been registered for the random airdrop.");
+      } else if (err.message === "AIRDROP_FULL") {
+        alert("🔒 Sorry! All 1,000 spots have already been filled.");
+        syncAirdropStats();
       } else {
         alert("❌ Something went wrong. Please try again.\n\n" + err.message);
       }

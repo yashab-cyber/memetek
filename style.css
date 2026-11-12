@@ -81,6 +81,16 @@ h1,h2,h3,p{margin-top:0}h1,h2{font-family:var(--display);letter-spacing:-2.5px}h
 .form-link{color:var(--yellow);text-decoration:underline;text-underline-offset:3px}
 .form-success{text-align:center;padding:55px 36px}
 .success-icon{font-size:52px;margin-bottom:18px}
+.form-closed{text-align:center;padding:55px 36px;border-color:rgba(255,60,60,.3)}
+.closed-icon{font-size:52px;margin-bottom:18px}
+.spots-live-banner{display:inline-flex;align-items:center;gap:10px;background:rgba(255,201,40,.08);border:1px solid rgba(255,201,40,.25);border-radius:99px;padding:8px 18px;margin-bottom:24px;font:700 12px var(--display);letter-spacing:1px;color:var(--yellow)}
+.spots-live-banner.closed{background:rgba(255,60,60,.08);border-color:rgba(255,60,60,.3);color:#ff6b6b}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:#32c864;box-shadow:0 0 8px #32c864;animation:pulse-glow 1.8s infinite;flex-shrink:0}
+.spots-live-banner.closed .pulse-dot{background:#ff6b6b;box-shadow:0 0 8px #ff6b6b;animation:none}
+@keyframes pulse-glow{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+.spots-num{color:var(--yellow);font-weight:700}
+.airdrop-card.closed{opacity:.75}
+.airdrop-card.closed .button{background:#2a2822;color:#8e897d;pointer-events:none;border:1px solid rgba(255,255,255,.1)}
 
 /* ── RESPONSIVE: AIRDROP + FORMS ── */
 @media(max-width:850px){
