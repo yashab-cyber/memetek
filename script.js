@@ -27,7 +27,7 @@ document.querySelectorAll(".year-text").forEach(el => el.textContent = new Date(
 
 // ── REVEAL ANIMATION ──
 const revealItems = document.querySelectorAll(
-  ".principle-card, .culture-visual, .culture-copy, .community-panel, .airdrop-card, .ca-banner-inner, .form-container"
+  ".principle-card, .culture-visual, .culture-copy, .community-panel, .airdrop-card, .ca-banner-inner, .form-container, .announcement-card, .gallery-card, .faq-item, .announcements-banner, .gallery-cta-box, .faq-contact-card"
 );
 revealItems.forEach((item) => item.classList.add("reveal"));
 
@@ -217,11 +217,19 @@ if (submitTelegramBtn) {
     const solAddress = document.getElementById("tgSolAddress").value.trim();
     const xUsername = document.getElementById("tgXUsername").value.trim();
     const tgUsername = document.getElementById("tgTelegramUsername").value.trim();
+    const agreeTerms = document.getElementById("tgAgreeTerms");
+    const termsError = document.getElementById("tgTermsError");
 
     if (!solAddress || !xUsername || !tgUsername) {
       alert("Please fill in all fields.");
       return;
     }
+
+    if (!agreeTerms.checked) {
+      if (termsError) termsError.style.display = "block";
+      return;
+    }
+    if (termsError) termsError.style.display = "none";
 
     // Disable button while submitting
     submitTelegramBtn.disabled = true;
@@ -239,6 +247,9 @@ if (submitTelegramBtn) {
       const success = document.getElementById("telegramSuccess");
       success.style.display = "block";
       success.classList.add("visible");
+
+      // Show congrats modal
+      showCongratsModal();
 
       // Sync spot countdown
       syncAirdropStats();
@@ -267,11 +278,19 @@ if (submitRandomBtn) {
     const solAddress = document.getElementById("rdSolAddress").value.trim();
     const xUsername = document.getElementById("rdXUsername").value.trim();
     const tgUsername = document.getElementById("rdTelegramUsername").value.trim();
+    const agreeTerms = document.getElementById("rdAgreeTerms");
+    const termsError = document.getElementById("rdTermsError");
 
     if (!solAddress || !xUsername || !tgUsername) {
       alert("Please fill in all fields.");
       return;
     }
+
+    if (!agreeTerms.checked) {
+      if (termsError) termsError.style.display = "block";
+      return;
+    }
+    if (termsError) termsError.style.display = "none";
 
     // Disable button while submitting
     submitRandomBtn.disabled = true;
@@ -290,6 +309,9 @@ if (submitRandomBtn) {
       success.style.display = "block";
       success.classList.add("visible");
 
+      // Show congrats modal
+      showCongratsModal();
+
       // Sync spot countdown
       syncAirdropStats();
     } catch (err) {
@@ -305,5 +327,352 @@ if (submitRandomBtn) {
         alert("❌ Something went wrong. Please try again.\n\n" + err.message);
       }
     }
+  });
+}
+
+// ══════════════════════════════════════════
+// TERMS & CONDITIONS MODAL
+// ══════════════════════════════════════════
+const termsModal = document.getElementById("termsModal");
+const closeTermsModal = document.getElementById("closeTermsModal");
+const acceptTermsModal = document.getElementById("acceptTermsModal");
+
+// Open modal triggers (both pages)
+document.querySelectorAll(".terms-modal-trigger").forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (termsModal) termsModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeTermsBox() {
+  if (termsModal) termsModal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+if (closeTermsModal) closeTermsModal.addEventListener("click", closeTermsBox);
+if (acceptTermsModal) {
+  acceptTermsModal.addEventListener("click", () => {
+    // Auto-check the agree checkbox when user clicks "I Understand"
+    const tgCheck = document.getElementById("tgAgreeTerms");
+    const rdCheck = document.getElementById("rdAgreeTerms");
+    if (tgCheck) tgCheck.checked = true;
+    if (rdCheck) rdCheck.checked = true;
+    // Hide terms error if visible
+    const tgErr = document.getElementById("tgTermsError");
+    const rdErr = document.getElementById("rdTermsError");
+    if (tgErr) tgErr.style.display = "none";
+    if (rdErr) rdErr.style.display = "none";
+    closeTermsBox();
+  });
+}
+
+// Close modal on overlay click
+if (termsModal) {
+  termsModal.addEventListener("click", (e) => {
+    if (e.target === termsModal) closeTermsBox();
+  });
+}
+
+// ══════════════════════════════════════════
+// CONGRATULATIONS MODAL
+// ══════════════════════════════════════════
+function showCongratsModal() {
+  const modal = document.getElementById("congratsModal");
+  if (modal) {
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+}
+
+const closeCongrats = document.getElementById("closeCongrats");
+if (closeCongrats) {
+  closeCongrats.addEventListener("click", () => {
+    const modal = document.getElementById("congratsModal");
+    if (modal) modal.style.display = "none";
+    document.body.style.overflow = "";
+    window.location.href = "index.html";
+  });
+}
+
+// Close congrats on overlay click
+const congratsModal = document.getElementById("congratsModal");
+if (congratsModal) {
+  congratsModal.addEventListener("click", (e) => {
+    if (e.target === congratsModal) {
+      congratsModal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  });
+}
+
+// Close modals on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (typeof termsModal !== "undefined" && termsModal && termsModal.style.display === "flex") closeTermsBox();
+    if (typeof congratsModal !== "undefined" && congratsModal && congratsModal.style.display === "flex") {
+      congratsModal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+    if (typeof galleryLightbox !== "undefined" && galleryLightbox && galleryLightbox.style.display === "flex") {
+      closeGalleryLightbox();
+    }
+  }
+});
+
+// ══════════════════════════════════════════
+// ANNOUNCEMENTS FILTER
+// ══════════════════════════════════════════
+const announcementFilterBtns = document.querySelectorAll(".announcements-filter-bar .filter-btn");
+const announcementCards = document.querySelectorAll(".announcements-grid .announcement-card");
+
+if (announcementFilterBtns.length && announcementCards.length) {
+  announcementFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      announcementFilterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.getAttribute("data-filter");
+
+      announcementCards.forEach((card) => {
+        const category = card.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
+// ══════════════════════════════════════════
+// COMMUNITY GALLERY (FILTER, LIKES, LIGHTBOX)
+// ══════════════════════════════════════════
+const galleryFilterBtns = document.querySelectorAll(".gallery-filter-bar .filter-btn");
+const galleryCards = document.querySelectorAll(".gallery-grid .gallery-card");
+
+// Gallery filter
+if (galleryFilterBtns.length && galleryCards.length) {
+  galleryFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      galleryFilterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.getAttribute("data-gallery-filter");
+
+      galleryCards.forEach((card) => {
+        const category = card.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
+// Gallery likes system with localStorage
+const LIKES_KEY = "memetek_gallery_likes_v1";
+let userLikes = {};
+try {
+  userLikes = JSON.parse(localStorage.getItem(LIKES_KEY) || "{}");
+} catch {
+  userLikes = {};
+}
+
+function updateLikeButton(button, isLiked, count) {
+  if (isLiked) {
+    button.classList.add("liked");
+  } else {
+    button.classList.remove("liked");
+  }
+  const countEl = button.querySelector(".like-count");
+  if (countEl) countEl.textContent = count;
+}
+
+document.querySelectorAll(".gallery-card .like-btn").forEach((btn) => {
+  const itemId = btn.getAttribute("data-item-id");
+  const baseCount = parseInt(btn.querySelector(".like-count")?.textContent || "0", 10);
+  
+  if (userLikes[itemId]) {
+    updateLikeButton(btn, true, baseCount + 1);
+  }
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const currentlyLiked = !!userLikes[itemId];
+    const newLiked = !currentlyLiked;
+    userLikes[itemId] = newLiked;
+    try {
+      localStorage.setItem(LIKES_KEY, JSON.stringify(userLikes));
+    } catch {}
+
+    const newCount = baseCount + (newLiked ? 1 : 0);
+    updateLikeButton(btn, newLiked, newCount);
+
+    if (activeLightboxItemId === itemId) {
+      updateLightboxLikeBtn(newLiked, newCount);
+    }
+  });
+});
+
+// Gallery Lightbox
+const galleryLightbox = document.getElementById("galleryLightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxBadge = document.getElementById("lightboxBadge");
+const lightboxCreator = document.getElementById("lightboxCreator");
+const lightboxTitle = document.getElementById("lightboxTitle");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxLikeBtn = document.getElementById("lightboxLikeBtn");
+const lightboxShareBtn = document.getElementById("lightboxShareBtn");
+let activeLightboxItemId = null;
+
+function updateLightboxLikeBtn(isLiked, count) {
+  if (!lightboxLikeBtn) return;
+  if (isLiked) {
+    lightboxLikeBtn.classList.add("liked");
+    lightboxLikeBtn.innerHTML = `<span>♥</span> Liked (${count})`;
+  } else {
+    lightboxLikeBtn.classList.remove("liked");
+    lightboxLikeBtn.innerHTML = `<span>♥</span> Like This Piece (<span id="lightboxLikeCount">${count}</span>)`;
+  }
+}
+
+function openGalleryLightbox(card) {
+  if (!galleryLightbox) return;
+  const media = card.querySelector(".gallery-media img");
+  const badge = card.querySelector(".gallery-card-badge");
+  const creator = card.querySelector(".creator-name");
+  const title = card.querySelector(".gallery-info h3");
+  const caption = card.querySelector(".gallery-info p");
+  const likeBtn = card.querySelector(".like-btn");
+  const itemId = likeBtn ? likeBtn.getAttribute("data-item-id") : null;
+  const currentCount = likeBtn ? parseInt(likeBtn.querySelector(".like-count")?.textContent || "0", 10) : 0;
+  const isLiked = likeBtn ? likeBtn.classList.contains("liked") : false;
+
+  activeLightboxItemId = itemId;
+  if (lightboxImg && media) {
+    lightboxImg.src = media.getAttribute("src") || "";
+    lightboxImg.alt = media.getAttribute("alt") || "";
+  }
+  if (lightboxBadge && badge) lightboxBadge.textContent = badge.textContent;
+  if (lightboxCreator && creator) lightboxCreator.textContent = creator.textContent;
+  if (lightboxTitle && title) lightboxTitle.textContent = title.textContent;
+  if (lightboxCaption && caption) lightboxCaption.textContent = caption.textContent;
+
+  updateLightboxLikeBtn(isLiked, currentCount);
+
+  if (lightboxShareBtn && title) {
+    const text = encodeURIComponent(`Check out "${title.textContent}" on @MEMETEK Community Gallery! 🚀 #MEMETEK #Solana`);
+    lightboxShareBtn.href = `https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.origin + window.location.pathname)}`;
+  }
+
+  galleryLightbox.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeGalleryLightbox() {
+  if (!galleryLightbox) return;
+  galleryLightbox.style.display = "none";
+  document.body.style.overflow = "";
+  activeLightboxItemId = null;
+}
+
+if (galleryCards.length && galleryLightbox) {
+  galleryCards.forEach((card) => {
+    const media = card.querySelector(".gallery-media");
+    if (media) {
+      media.addEventListener("click", () => openGalleryLightbox(card));
+      media.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openGalleryLightbox(card);
+        }
+      });
+    }
+  });
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeGalleryLightbox);
+  }
+
+  galleryLightbox.addEventListener("click", (e) => {
+    if (e.target === galleryLightbox) closeGalleryLightbox();
+  });
+
+  if (lightboxLikeBtn) {
+    lightboxLikeBtn.addEventListener("click", () => {
+      if (!activeLightboxItemId) return;
+      const matchingBtn = document.querySelector(`.like-btn[data-item-id="${activeLightboxItemId}"]`);
+      if (matchingBtn) {
+        matchingBtn.click();
+      }
+    });
+  }
+}
+
+// ══════════════════════════════════════════
+// FAQ ACCORDION & CATEGORY FILTER
+// ══════════════════════════════════════════
+const faqItems = document.querySelectorAll(".faq-accordion .faq-item");
+const faqFilterBtns = document.querySelectorAll(".faq-filter-bar .filter-btn");
+
+if (faqItems.length) {
+  faqItems.forEach((item) => {
+    const questionBtn = item.querySelector(".faq-question");
+    const answerPanel = item.querySelector(".faq-answer");
+
+    if (questionBtn && answerPanel) {
+      questionBtn.addEventListener("click", () => {
+        const isOpen = item.classList.contains("active");
+
+        // Close other FAQ items for a clean accordion effect
+        faqItems.forEach((other) => {
+          if (other !== item && other.classList.contains("active")) {
+            other.classList.remove("active");
+            const otherBtn = other.querySelector(".faq-question");
+            const otherAns = other.querySelector(".faq-answer");
+            if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+            if (otherAns) otherAns.style.maxHeight = null;
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove("active");
+          questionBtn.setAttribute("aria-expanded", "false");
+          answerPanel.style.maxHeight = null;
+        } else {
+          item.classList.add("active");
+          questionBtn.setAttribute("aria-expanded", "true");
+          answerPanel.style.maxHeight = (answerPanel.scrollHeight + 30) + "px";
+        }
+      });
+    }
+  });
+}
+
+// FAQ category filter
+if (faqFilterBtns.length && faqItems.length) {
+  faqFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      faqFilterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.getAttribute("data-faq-filter");
+
+      faqItems.forEach((item) => {
+        const category = item.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+          item.classList.remove("active");
+          const qBtn = item.querySelector(".faq-question");
+          const ans = item.querySelector(".faq-answer");
+          if (qBtn) qBtn.setAttribute("aria-expanded", "false");
+          if (ans) ans.style.maxHeight = null;
+        }
+      });
+    });
   });
 }

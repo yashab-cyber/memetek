@@ -81,6 +81,14 @@
             <label for="tgTelegramUsername">Telegram Username</label>
             <input type="text" id="tgTelegramUsername" placeholder="@yourtelegram" required>
           </div>
+          <div class="form-checkbox">
+            <label class="checkbox-label">
+              <input type="checkbox" id="tgAgreeTerms" required>
+              <span class="checkbox-custom"></span>
+              <span>I agree to the <button type="button" class="terms-modal-trigger" id="openTermsModalTg">Terms &amp; Conditions</button></span>
+            </label>
+          </div>
+          <div id="tgTermsError" class="form-error" style="display:none;">❌ You must agree to the Terms &amp; Conditions to proceed.</div>
           <button type="button" class="button button-primary form-submit" id="submitTelegramBtn">Submit Registration <span>→</span></button>
         </form>
       </div>
@@ -99,6 +107,10 @@
     <a class="brand footer-brand" href="index.html"><img src="assets/memetek-logo.png" alt=""><span>MEME<span>TEK</span></span></a>
     <p>Where Memes Meet the Moon.</p>
     <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#announcements">Updates</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#faq">FAQ</a>
       <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
       <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
       <a href="privacy.html">Privacy Policy</a>
@@ -106,6 +118,48 @@
     </div>
     <small>© <span class="year-text"></span> MEMETEK. Community-powered. DYOR • NFA.</small>
   </footer>
+  <!-- Terms & Conditions Modal -->
+  <div class="modal-overlay" id="termsModal" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Terms &amp; Conditions</h3>
+        <button class="modal-close" id="closeTermsModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="legal-section"><h2>1. Acceptance of Terms</h2><p>By accessing or using the MEMETEK website, submitting forms, or engaging with our airdrops and community initiatives, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions.</p></div>
+        <div class="legal-section"><h2>2. Meme Token Nature &amp; Disclaimer (DYOR • NFA)</h2><p>MEMETEK ($MEMETEK) is a decentralized meme and culture coin developed purely for entertainment, humor, community engagement, and social camaraderie within the Solana ecosystem.</p><ul><li><span>✦</span> <strong>Not an Investment:</strong> $MEMETEK is not a security, investment contract, or financial instrument.</li><li><span>✦</span> <strong>No Financial Advice:</strong> Nothing constitutes financial, investment, legal, or tax advice.</li><li><span>✦</span> <strong>DYOR:</strong> Always Do Your Own Research. Only interact with what you are willing to lose.</li></ul></div>
+        <div class="legal-section"><h2>3. Airdrop Rules &amp; Eligibility</h2><p>Participation is free and subject to:</p><ul><li><span>✦</span> <strong>One Entry Per Person</strong> per wallet, X username, and Telegram handle.</li><li><span>✦</span> <strong>Anti-Bot &amp; Fair Play:</strong> Bots, multi-accounting, and falsified identities result in disqualification.</li><li><span>✦</span> Airdrop allocations are promotional community gifts.</li></ul></div>
+        <div class="legal-section"><h2>4. Wallet Security</h2><p>You are solely responsible for safeguarding your wallet credentials. MEMETEK will NEVER ask for your seed phrase or private key.</p></div>
+        <div class="legal-section"><h2>5. Blockchain Risks</h2><p>You acknowledge all risks associated with using the Solana network, including forks, congestion, delays, and smart contract errors.</p></div>
+        <div class="legal-section"><h2>6. Intellectual Property</h2><p>You are encouraged to share and remix MEMETEK memes in good faith, provided you do not use them to conduct scams or misrepresent the project.</p></div>
+        <div class="legal-section"><h2>7. Limitation of Liability</h2><p>MEMETEK shall not be held liable for any damages resulting from your use of this website, participation in airdrops, or holding/trading of tokens.</p></div>
+        <div class="legal-section"><h2>8. Amendments</h2><p>We reserve the right to update these Terms at any time. Continued use signifies acceptance of revised terms.</p></div>
+      </div>
+      <div class="modal-footer">
+        <button class="button button-primary" id="acceptTermsModal">I Understand <span>✓</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Congratulations Modal -->
+  <div class="modal-overlay" id="congratsModal" style="display:none;">
+    <div class="modal-box congrats-modal">
+      <div class="congrats-icon">🎉</div>
+      <h2>Congratulations!</h2>
+      <p class="congrats-text">Your airdrop registration is confirmed! You're now in the running.</p>
+      <p class="congrats-sub">Follow us on all platforms to stay updated on token distribution and future announcements:</p>
+      <div class="congrats-links">
+        <a class="button button-primary congrats-btn" href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">
+          <span>📱</span> Join Telegram <span>↗</span>
+        </a>
+        <a class="button button-ghost congrats-btn" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+          <span>🐦</span> Follow on X <span>↗</span>
+        </a>
+      </div>
+      <button class="congrats-dismiss" id="closeCongrats">Continue to Home →</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

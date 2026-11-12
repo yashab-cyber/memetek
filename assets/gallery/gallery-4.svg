@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kitchenBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#140f06"/>
+      <stop offset="50%" stop-color="#0d0c0a"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="brewGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe17a"/>
+      <stop offset="50%" stop-color="#ffc928"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="600" height="450" fill="url(#kitchenBg)"/>
+
+  <!-- Magical Sparkles & Smoke in background -->
+  <g fill="#ffc928" opacity="0.6">
+    <circle cx="240" cy="190" r="4"/>
+    <circle cx="360" cy="180" r="3"/>
+    <circle cx="210" cy="140" r="5"/>
+    <circle cx="380" cy="130" r="4"/>
+    <circle cx="300" cy="100" r="6"/>
+  </g>
+  <!-- Smoke Steam rising -->
+  <path d="M280 230 Q260 170 300 130 Q330 90 290 60" fill="none" stroke="rgba(255,201,40,0.3)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M320 220 Q350 160 310 110 Q280 70 310 40" fill="none" stroke="rgba(255,201,40,0.3)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- The Cosmic Cauldron -->
+  <ellipse cx="300" cy="330" rx="140" ry="85" fill="#181611" stroke="#ffc928" stroke-width="3"/>
+  <!-- Cauldron Rim -->
+  <ellipse cx="300" cy="270" rx="130" ry="30" fill="#221e14" stroke="#ffc928" stroke-width="3"/>
+  <!-- Boiling Golden Potion -->
+  <ellipse cx="300" cy="270" rx="118" ry="24" fill="url(#brewGrad)" filter="url(#goldGlow)"/>
+
+  <!-- Bubbles bursting with coins and symbols -->
+  <circle cx="260" cy="265" r="14" fill="#fff" opacity="0.8"/>
+  <circle cx="340" cy="268" r="18" fill="#fff" opacity="0.7"/>
+  <circle cx="295" cy="255" r="10" fill="#fff" opacity="0.9"/>
+  <!-- Floating Coin from Cauldron -->
+  <circle cx="300" cy="210" r="22" fill="#ffc928" stroke="#fff" stroke-width="2"/>
+  <text x="300" y="217" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="18" fill="#111" text-anchor="middle">M</text>
+
+  <!-- Dev Chef Cat behind the cauldron -->
+  <!-- Chef Hat -->
+  <path d="M255 70 Q240 30 270 20 Q300 10 330 20 Q360 30 345 70 Z" fill="#ffffff" stroke="#ddd" stroke-width="1.5"/>
+  <rect x="260" y="65" width="80" height="20" rx="3" fill="#ffffff" stroke="#ccc" stroke-width="1"/>
+  <!-- Hat band gold with $MEMETEK -->
+  <rect x="260" y="77" width="80" height="8" fill="#ffc928"/>
+
+  <!-- Cat Head -->
+  <ellipse cx="300" cy="115" rx="46" ry="38" fill="#12110d" stroke="#ffc928" stroke-width="2"/>
+  <!-- Cat Ears -->
+  <polygon points="255,100 245,65 275,85" fill="#12110d" stroke="#ffc928" stroke-width="2"/>
+  <polygon points="345,100 355,65 325,85" fill="#12110d" stroke="#ffc928" stroke-width="2"/>
+
+  <!-- Cat Eyes with focused expression & spectacles -->
+  <circle cx="282" cy="112" r="13" fill="none" stroke="#ffc928" stroke-width="2"/>
+  <circle cx="318" cy="112" r="13" fill="none" stroke="#ffc928" stroke-width="2"/>
+  <line x1="295" y1="112" x2="305" y2="112" stroke="#ffc928" stroke-width="2"/>
+  <ellipse cx="282" cy="112" rx="7" ry="9" fill="#ffc928"/>
+  <circle cx="282" cy="112" r="3" fill="#111"/>
+  <ellipse cx="318" cy="112" rx="7" ry="9" fill="#ffc928"/>
+  <circle cx="318" cy="112" r="3" fill="#111"/>
+
+  <!-- Whiskers -->
+  <line x1="260" y1="124" x2="235" y2="120" stroke="#ffc928" stroke-width="1.5"/>
+  <line x1="260" y1="130" x2="230" y2="132" stroke="#ffc928" stroke-width="1.5"/>
+  <line x1="340" y1="124" x2="365" y2="120" stroke="#ffc928" stroke-width="1.5"/>
+  <line x1="340" y1="130" x2="370" y2="132" stroke="#ffc928" stroke-width="1.5"/>
+
+  <!-- Giant Stirring Wooden/Gold Spoon -->
+  <line x1="375" y1="120" x2="310" y2="280" stroke="#d97706" stroke-width="8" stroke-linecap="round"/>
+  <line x1="375" y1="120" x2="310" y2="280" stroke="#ffc928" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Binary & Code particles floating out -->
+  <text x="170" y="160" font-family="monospace" font-size="12" fill="#22c55e" opacity="0.8">01101101 01100101</text>
+  <text x="400" y="170" font-family="monospace" font-size="12" fill="#22c55e" opacity="0.8">fn moon_launch()</text>
+  <text x="140" y="240" font-family="monospace" font-size="11" fill="#ffc928" opacity="0.7">deploy_contract();</text>
+  <text x="410" y="230" font-family="monospace" font-size="11" fill="#ffc928" opacity="0.7">liquidity.lock(100);</text>
+
+  <!-- Meme Header Banner -->
+  <rect x="30" y="25" width="220" height="28" rx="14" fill="rgba(17,17,15,0.85)" stroke="rgba(255,201,40,0.5)" stroke-width="1"/>
+  <text x="44" y="43" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11" fill="#ffc928" letter-spacing="1">👨‍🍳 LET THE DEVS COOK</text>
+</svg>

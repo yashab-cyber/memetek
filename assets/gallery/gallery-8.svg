@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="goldAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe17a" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#ffc928" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#080808" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="genesisGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff5c0"/>
+      <stop offset="35%" stop-color="#ffc928"/>
+      <stop offset="70%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="450" fill="#090807"/>
+
+  <!-- Halo Aura -->
+  <circle cx="300" cy="225" r="180" fill="url(#goldAura)"/>
+
+  <!-- Sacred Geometry / Starburst lines -->
+  <g stroke="#ffc928" stroke-width="1" opacity="0.35">
+    <line x1="300" y1="45" x2="300" y2="405"/>
+    <line x1="120" y1="225" x2="480" y2="225"/>
+    <line x1="172" y1="97" x2="428" y2="353"/>
+    <line x1="172" y1="353" x2="428" y2="97"/>
+    <circle cx="300" cy="225" r="140" fill="none" stroke-dasharray="6, 6"/>
+    <circle cx="300" cy="225" r="110" fill="none"/>
+  </g>
+
+  <!-- Ornate Golden Frame -->
+  <rect x="70" y="40" width="460" height="370" rx="12" fill="none" stroke="url(#genesisGold)" stroke-width="2"/>
+  <rect x="78" y="48" width="444" height="354" rx="8" fill="none" stroke="#ffc928" stroke-width="1" opacity="0.4"/>
+
+  <!-- Corner Flourishes -->
+  <g fill="#ffc928">
+    <polygon points="70,40 90,40 70,60"/>
+    <polygon points="530,40 510,40 530,60"/>
+    <polygon points="70,410 90,410 70,390"/>
+    <polygon points="530,410 510,410 530,390"/>
+  </g>
+
+  <!-- Center Portrait: Majestic MEMETEK Cat -->
+  <!-- Cat Body -->
+  <ellipse cx="300" cy="300" rx="75" ry="90" fill="#141310" stroke="url(#genesisGold)" stroke-width="2.5"/>
+
+  <!-- Golden Medallion Collar -->
+  <path d="M250 260 Q300 290 350 260" fill="none" stroke="#ffc928" stroke-width="4"/>
+  <circle cx="300" cy="285" r="16" fill="url(#genesisGold)" stroke="#ffffff" stroke-width="1"/>
+  <text x="300" y="291" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="14" fill="#111" text-anchor="middle">M</text>
+
+  <!-- Cat Head -->
+  <ellipse cx="300" cy="195" rx="60" ry="52" fill="#12110e" stroke="url(#genesisGold)" stroke-width="2.5"/>
+  <!-- Ears -->
+  <polygon points="245,175 230,120 270,148" fill="#141310" stroke="url(#genesisGold)" stroke-width="2.5"/>
+  <polygon points="355,175 370,120 330,148" fill="#141310" stroke="url(#genesisGold)" stroke-width="2.5"/>
+  <polygon points="246,168 238,135 264,152" fill="#ffc928" opacity="0.3"/>
+  <polygon points="354,168 362,135 336,152" fill="#ffc928" opacity="0.3"/>
+
+  <!-- Eyes: Glowing Gold -->
+  <ellipse cx="276" cy="190" rx="10" ry="14" fill="url(#genesisGold)"/>
+  <ellipse cx="324" cy="190" rx="10" ry="14" fill="url(#genesisGold)"/>
+  <ellipse cx="276" cy="190" rx="3.5" ry="12" fill="#111"/>
+  <ellipse cx="324" cy="190" rx="3.5" ry="12" fill="#111"/>
+  <circle cx="274" cy="186" r="2.5" fill="#fff"/>
+  <circle cx="322" cy="186" r="2.5" fill="#fff"/>
+
+  <!-- Nose & Whiskers -->
+  <polygon points="300,205 294,213 306,213" fill="#ffc928"/>
+  <line x1="260" y1="210" x2="200" y2="205" stroke="#ffc928" stroke-width="1.5"/>
+  <line x1="260" y1="218" x2="195" y2="222" stroke="#ffc928" stroke-width="1.5"/>
+  <line x1="340" y1="210" x2="400" y2="205" stroke="#ffc928" stroke-width="1.5"/>
+  <line x1="340" y1="218" x2="405" y2="222" stroke="#ffc928" stroke-width="1.5"/>
+
+  <!-- Crown / Star above Head -->
+  <polygon points="300,90 306,108 324,114 306,120 300,138 294,120 276,114 294,108" fill="url(#genesisGold)"/>
+
+  <!-- Inscription -->
+  <text x="300" y="380" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="12" fill="#ffc928" text-anchor="middle" letter-spacing="4">MEMETEK GENESIS</text>
+
+  <!-- Meme Header Banner -->
+  <rect x="30" y="25" width="220" height="28" rx="14" fill="rgba(17,17,15,0.85)" stroke="rgba(255,201,40,0.5)" stroke-width="1"/>
+  <text x="44" y="43" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11" fill="#ffc928" letter-spacing="1">👑 GENESIS COLLECTIBLE</text>
+</svg>
