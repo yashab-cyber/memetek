@@ -28,4 +28,77 @@ h1,h2,h3,p{margin-top:0}h1,h2{font-family:var(--display);letter-spacing:-2.5px}h
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── CA COMING SOON BANNER ── */
+.ca-banner{padding:0 24px;margin-bottom:0}
+.ca-banner-inner{max-width:1160px;margin:24px auto;display:flex;align-items:center;gap:18px;padding:18px 28px;background:linear-gradient(110deg,#1a1608,#13120c);border:1px solid var(--yellow);border-radius:6px;position:relative;overflow:hidden;animation:ca-pulse 3s ease-in-out infinite}
+.ca-banner-inner::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,201,40,.06),transparent);animation:ca-shine 4s ease-in-out infinite}
+@keyframes ca-pulse{0%,100%{box-shadow:0 0 15px rgba(255,201,40,.15)}50%{box-shadow:0 0 35px rgba(255,201,40,.3)}}
+@keyframes ca-shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.ca-icon{font-size:28px;flex-shrink:0}
+.ca-text h3{font:700 12px var(--display);letter-spacing:2.5px;color:var(--yellow);margin:0 0 4px}
+.ca-text p{font-size:12px;color:#bcb9af;margin:0;letter-spacing:.5px}
+.ca-badge{flex-shrink:0;margin-left:auto;background:var(--yellow);color:#111;font:800 10px var(--display);letter-spacing:2px;padding:7px 16px;border-radius:99px;animation:badge-blink 2s ease-in-out infinite}
+@keyframes badge-blink{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ── AIRDROP SECTION ── */
+.airdrop{padding:90px 0 100px}
+.airdrop-header{margin-top:20px;margin-bottom:55px}
+.airdrop-header h2{margin-bottom:16px}
+.airdrop-sub{color:#aaa69c;font-size:15px;line-height:1.75;max-width:520px}
+.airdrop-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.airdrop-card{background:linear-gradient(145deg,#171612,#0e0e0c);border:1px solid rgba(255,255,255,.1);padding:36px 32px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.airdrop-card:hover{border-color:var(--yellow);transform:translateY(-5px)}
+.airdrop-card-badge{position:absolute;top:0;right:0;background:var(--yellow);color:#111;font:800 9px var(--display);letter-spacing:2px;padding:8px 16px}
+.airdrop-card-icon{font-size:40px;margin-bottom:18px}
+.airdrop-card h3{font:700 22px var(--display);margin-bottom:10px;letter-spacing:-.5px}
+.airdrop-card>p{color:#aaa69c;font-size:13px;line-height:1.75;margin-bottom:20px}
+.airdrop-card strong{color:var(--yellow)}
+.airdrop-steps{list-style:none;padding:0;margin:0 0 28px}
+.airdrop-steps li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px;color:#d4d0c5}
+.airdrop-steps span{width:24px;height:24px;border-radius:50%;background:rgba(255,201,40,.15);color:var(--yellow);display:grid;place-items:center;font:700 10px var(--display);flex-shrink:0}
+.airdrop-spots{margin-top:18px;font:600 11px var(--display);letter-spacing:1px;color:#8e897d}
+
+/* ── FORM PAGES ── */
+.form-page{padding:50px 0 100px}
+.form-page-header{margin-bottom:50px}
+.form-page-header h1{margin-bottom:18px}
+.form-page-lead{color:#aaa69c;font-size:15px;line-height:1.75;max-width:560px}
+.form-container{max-width:560px;background:linear-gradient(145deg,#171612,#0e0e0c);border:1px solid rgba(255,255,255,.1);padding:40px 36px;margin-bottom:24px;position:relative}
+.form-container h2{font-size:clamp(28px,4vw,38px);margin-bottom:10px}
+.form-desc{color:#aaa69c;font-size:13px;line-height:1.75;margin-bottom:28px}
+.form-step-badge{display:inline-block;background:rgba(255,201,40,.12);color:var(--yellow);font:700 9px var(--display);letter-spacing:2px;padding:6px 14px;margin-bottom:20px;border-radius:99px}
+.form-verified-badge{background:rgba(50,200,100,.12);color:#32c864;font:700 11px var(--display);letter-spacing:1px;padding:10px 18px;margin-bottom:22px;border-radius:4px}
+.airdrop-form{display:flex;flex-direction:column;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-group label{font:700 10px var(--display);letter-spacing:2px;color:var(--yellow);text-transform:uppercase}
+.form-group input{background:#0d0c09;border:1px solid rgba(255,255,255,.12);color:var(--white);font-family:var(--font);font-size:14px;padding:14px 18px;outline:none;transition:border-color .2s}
+.form-group input:focus{border-color:var(--yellow)}
+.form-group input::placeholder{color:#5a574e}
+.form-submit{margin-top:8px;cursor:pointer;border:none;width:100%}
+.form-error{background:rgba(255,60,60,.1);border:1px solid rgba(255,60,60,.3);color:#ff6b6b;font-size:12px;padding:12px 16px;border-radius:4px}
+.form-hint{margin-top:22px;font-size:12px;color:#8e897d;display:flex;align-items:center;gap:8px}
+.form-link{color:var(--yellow);text-decoration:underline;text-underline-offset:3px}
+.form-success{text-align:center;padding:55px 36px}
+.success-icon{font-size:52px;margin-bottom:18px}
+
+/* ── RESPONSIVE: AIRDROP + FORMS ── */
+@media(max-width:850px){
+  .airdrop-grid{grid-template-columns:1fr;gap:16px}
+  .ca-banner-inner{flex-wrap:wrap;gap:12px}
+  .ca-badge{margin-left:0}
+}
+@media(max-width:600px){
+  .airdrop{padding:60px 0 70px}
+  .airdrop-header{margin-bottom:35px}
+  .airdrop-card{padding:28px 22px}
+  .airdrop-card h3{font-size:19px}
+  .ca-banner-inner{padding:14px 18px}
+  .ca-text h3{font-size:10px}
+  .ca-text p{font-size:11px}
+  .form-page{padding:35px 0 70px}
+  .form-container{padding:28px 22px}
+  .form-page-header h1{font-size:clamp(36px,10vw,50px)}
+}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}.reveal{opacity:1;transform:none;transition:none}*{transition-duration:.01ms!important}}

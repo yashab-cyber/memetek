@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="MEMETEK Community Airdrop — 1,000 random winners will receive free tokens.">
+  <title>MEMETEK — Community Random Airdrop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MEMETEK home">
+      <img src="assets/memetek-logo.png" alt="MEMETEK cat logo">
+      <span>MEME<span>TEK</span></span>
+    </a>
+    <a class="button button-ghost" href="index.html">← Back to Home</a>
+  </header>
+
+  <main>
+    <section class="form-page section-wrap">
+      <div class="form-page-header">
+        <div class="section-kicker">🎰 COMMUNITY AIRDROP — 1,000 RANDOM WINNERS</div>
+        <h1>COMMUNITY<br><em>AIRDROP.</em></h1>
+        <p class="form-page-lead">Fill out the form below for a chance to be one of 1,000 randomly selected winners. Open to everyone — no code needed!</p>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="form-container" id="randomForm">
+        <h2>Enter the <em>Draw</em></h2>
+        <p class="form-desc">Provide your details below. Winners will be selected randomly after the registration period ends.</p>
+        <form id="randomAirdropForm" class="airdrop-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="rdSolAddress">Solana (SOL) Wallet Address</label>
+            <input type="text" id="rdSolAddress" placeholder="Enter your SOL wallet address..." required>
+          </div>
+          <div class="form-group">
+            <label for="rdXUsername">X (Twitter) Username</label>
+            <input type="text" id="rdXUsername" placeholder="@yourusername" required>
+          </div>
+          <div class="form-group">
+            <label for="rdTelegramUsername">Telegram Username</label>
+            <input type="text" id="rdTelegramUsername" placeholder="@yourtelegram" required>
+          </div>
+          <button type="button" class="button button-primary form-submit" id="submitRandomBtn">Submit Entry <span>→</span></button>
+        </form>
+        <div class="form-hint">
+          <span>🎲</span> 1,000 winners will be randomly drawn. Good luck!
+        </div>
+      </div>
+
+      <!-- Success Message -->
+      <div class="form-container form-success" id="randomSuccess" style="display:none;">
+        <div class="success-icon">🎉</div>
+        <h2>Entry <em>Submitted!</em></h2>
+        <p class="form-desc">You've been entered into the random airdrop draw. 1,000 winners will be selected — stay tuned for the announcement!</p>
+        <div class="form-hint">
+          <span>💡</span> Want guaranteed tokens? <a href="airdrop-telegram.html" class="form-link">Try the Telegram Direct Airdrop ↗</a>
+        </div>
+        <a class="button button-primary" href="index.html" style="margin-top:18px;">Back to Home <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap">
+    <a class="brand footer-brand" href="index.html"><img src="assets/memetek-logo.png" alt=""><span>MEME<span>TEK</span></span></a>
+    <p>Where Memes Meet the Moon.</p>
+    <div class="footer-links">
+      <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
+    </div>
+    <small>© <span class="year-text"></span> MEMETEK. Community-powered. DYOR • NFA.</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

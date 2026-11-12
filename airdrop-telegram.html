@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="MEMETEK Telegram Direct Airdrop — First 50 Telegram members get a guaranteed airdrop.">
+  <title>MEMETEK — Telegram Direct Airdrop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MEMETEK home">
+      <img src="assets/memetek-logo.png" alt="MEMETEK cat logo">
+      <span>MEME<span>TEK</span></span>
+    </a>
+    <a class="button button-ghost" href="index.html">← Back to Home</a>
+  </header>
+
+  <main>
+    <section class="form-page section-wrap">
+      <div class="form-page-header">
+        <div class="section-kicker">🚀 DIRECT AIRDROP — FIRST 50 TELEGRAM MEMBERS</div>
+        <h1>TELEGRAM<br><em>AIRDROP.</em></h1>
+        <p class="form-page-lead">Join our Telegram, get the secret code, and claim your guaranteed airdrop. Only 50 spots available — first come, first served!</p>
+      </div>
+
+      <!-- Step 1: Code Gate -->
+      <div class="form-container" id="codeGate">
+        <div class="form-step-badge">STEP 1 OF 2</div>
+        <h2>Enter Access <em>Code</em></h2>
+        <p class="form-desc">You need the secret access code to proceed. Join our <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer" class="form-link">Telegram group ↗</a> to get it.</p>
+        <form id="codeForm" class="airdrop-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="accessCode">Secret Access Code</label>
+            <input type="text" id="accessCode" placeholder="Enter the code from Telegram..." required autocomplete="off">
+          </div>
+          <div id="codeError" class="form-error" style="display:none;">❌ Invalid code. Join our Telegram to get the correct code.</div>
+          <button type="button" class="button button-primary form-submit" id="verifyCodeBtn">Verify Code <span>→</span></button>
+        </form>
+        <div class="form-hint">
+          <span>💡</span> Don't have the code? <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer" class="form-link">Join Telegram first ↗</a>
+        </div>
+      </div>
+
+      <!-- Step 2: Registration Form (Hidden until code verified) -->
+      <div class="form-container" id="telegramForm" style="display:none;">
+        <div class="form-step-badge">STEP 2 OF 2</div>
+        <div class="form-verified-badge">✅ Code Verified — You're In!</div>
+        <h2>Claim Your <em>Airdrop</em></h2>
+        <p class="form-desc">Fill in your details below to register for the direct Telegram airdrop.</p>
+        <form id="telegramAirdropForm" class="airdrop-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="tgSolAddress">Solana (SOL) Wallet Address</label>
+            <input type="text" id="tgSolAddress" placeholder="Enter your SOL wallet address..." required>
+          </div>
+          <div class="form-group">
+            <label for="tgXUsername">X (Twitter) Username</label>
+            <input type="text" id="tgXUsername" placeholder="@yourusername" required>
+          </div>
+          <div class="form-group">
+            <label for="tgTelegramUsername">Telegram Username</label>
+            <input type="text" id="tgTelegramUsername" placeholder="@yourtelegram" required>
+          </div>
+          <button type="button" class="button button-primary form-submit" id="submitTelegramBtn">Submit Registration <span>→</span></button>
+        </form>
+      </div>
+
+      <!-- Success Message (Hidden until form submitted) -->
+      <div class="form-container form-success" id="telegramSuccess" style="display:none;">
+        <div class="success-icon">🎉</div>
+        <h2>You're <em>Registered!</em></h2>
+        <p class="form-desc">Your direct airdrop registration is confirmed. Stay tuned in our Telegram for updates on when tokens will be distributed.</p>
+        <a class="button button-primary" href="index.html">Back to Home <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap">
+    <a class="brand footer-brand" href="index.html"><img src="assets/memetek-logo.png" alt=""><span>MEME<span>TEK</span></span></a>
+    <p>Where Memes Meet the Moon.</p>
+    <div class="footer-links">
+      <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
+    </div>
+    <small>© <span class="year-text"></span> MEMETEK. Community-powered. DYOR • NFA.</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
