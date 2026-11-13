@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="MEMETEK Official Updates & Project Milestones — Direct dispatches from mission control.">
+  <title>MEMETEK — Official Updates & Milestones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MEMETEK home">
+      <img src="assets/memetek-logo.png" alt="MEMETEK cat logo">
+      <span>MEME<span>TEK</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="index.html#about">About</a>
+      <a href="index.html#culture">Our culture</a>
+      <a href="index.html#airdrop">Airdrop</a>
+      <a href="updates.html" class="active">Updates</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#community">Community</a>
+      <a class="nav-cta" href="index.html#community">Join the crew <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 03 / Announcements & Milestones -->
+    <section class="announcements section-wrap" id="announcements">
+      <div class="section-kicker">03 / PROJECT PULSE</div>
+      <div class="announcements-header">
+        <div>
+          <h2>OFFICIAL UPDATES &amp;<br><em>PROJECT MILESTONES.</em></h2>
+        </div>
+        <p class="announcements-lead">Direct dispatches from mission control. Follow core roadmap deliveries, smart contract progress, and launch phases.</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="filter-bar announcements-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Updates <span class="filter-count">6</span></button>
+        <button class="filter-btn" data-filter="airdrop">Airdrop <span class="filter-count">2</span></button>
+        <button class="filter-btn" data-filter="milestone">Milestones <span class="filter-count">3</span></button>
+        <button class="filter-btn" data-filter="ecosystem">Ecosystem <span class="filter-count">1</span></button>
+      </div>
+
+      <!-- Announcements Grid -->
+      <div class="announcements-grid" id="announcementsGrid">
+        <!-- Item 1 -->
+        <article class="announcement-card" data-category="airdrop">
+          <div class="announcement-top">
+            <span class="announcement-badge badge-live"><span class="pulse-dot"></span> LIVE NOW</span>
+            <span class="announcement-date">NOV 2026</span>
+          </div>
+          <div class="announcement-cat-tag">🚀 DIRECT AIRDROP</div>
+          <h3>Telegram Direct Airdrop is Live</h3>
+          <p>Registration for the exclusive 50-spot direct airdrop is currently open. First 50 Telegram members who retrieve the secret code receive guaranteed $MEMETEK tokens.</p>
+          <div class="announcement-footer">
+            <span class="announcement-status">Allocation: 50 Guaranteed</span>
+            <a href="airdrop-telegram.html" class="announcement-link">Claim Spot <span>↗</span></a>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="announcement-card" data-category="airdrop">
+          <div class="announcement-top">
+            <span class="announcement-badge badge-live"><span class="pulse-dot"></span> OPEN TO ALL</span>
+            <span class="announcement-date">NOV 2026</span>
+          </div>
+          <div class="announcement-cat-tag">🎰 COMMUNITY AIRDROP</div>
+          <h3>1,000 Spot Community Lottery Open</h3>
+          <p>Public registrations are open for the 1,000 winner community lottery draw. Submit your Solana address and complete community tasks to qualify for the genesis pool.</p>
+          <div class="announcement-footer">
+            <span class="announcement-status">Allocation: 1,000 Winners</span>
+            <a href="airdrop-random.html" class="announcement-link">Enter Lottery <span>↗</span></a>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="announcement-card" data-category="milestone">
+          <div class="announcement-top">
+            <span class="announcement-badge badge-progress">⚡ IN PROGRESS</span>
+            <span class="announcement-date">PHASE 1</span>
+          </div>
+          <div class="announcement-cat-tag">🔗 CONTRACT DEPLOYMENT</div>
+          <h3>Solana Contract Audit &amp; CA Preparation</h3>
+          <p>Smart contract verification on Solana devnet is in progress. Mint authority revocation and freeze authority disabling scripts are being audited. CA release will occur simultaneously on site and Telegram.</p>
+          <div class="announcement-footer">
+            <span class="announcement-status">Network: Solana Mainnet</span>
+            <a href="index.html#ca" class="announcement-link">Check CA Status <span>↓</span></a>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="announcement-card" data-category="ecosystem">
+          <div class="announcement-top">
+            <span class="announcement-badge badge-live"><span class="pulse-dot"></span> CONTEST LIVE</span>
+            <span class="announcement-date">NOV 2026</span>
+          </div>
+          <div class="announcement-cat-tag">🎨 $10 MEME CONTEST</div>
+          <h3>MEMETEK Community Meme Contest is Live!</h3>
+          <p>Create your best MEMETEK memes or artwork and submit in our Telegram group. Winners receive <strong>$10 EACH</strong> and get featured on the official website! Only 5 days to enter.</p>
+          <div class="announcement-footer">
+            <span class="announcement-status">Prize: $10 Each (Ends Nov 18)</span>
+            <a href="gallery.html" class="announcement-link">Contest &amp; Gallery <span>↗</span></a>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="announcement-card" data-category="milestone">
+          <div class="announcement-top">
+            <span class="announcement-badge badge-upcoming">🔒 UPCOMING</span>
+            <span class="announcement-date">PHASE 2</span>
+          </div>
+          <div class="announcement-cat-tag">💧 LIQUIDITY LAUNCH</div>
+          <h3>Raydium DEX Listing &amp; 100% LP Burn</h3>
+          <p>Official liquidity pool will be seeded on Raydium with 100% LP tokens permanently burned at launch. Proof transaction signatures will be published publicly for full transparency.</p>
+          <div class="announcement-footer">
+            <span class="announcement-status">Safety: 100% Burned</span>
+            <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer" class="announcement-link">Get Notified <span>↗</span></a>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="announcement-card" data-category="milestone">
+          <div class="announcement-top">
+            <span class="announcement-badge badge-upcoming">🔒 UPCOMING</span>
+            <span class="announcement-date">PHASE 2</span>
+          </div>
+          <div class="announcement-cat-tag">📊 PRICE TRACKING</div>
+          <h3>CoinGecko &amp; CoinMarketCap Fast-Track</h3>
+          <p>Documentation and compliance packages ready for expedited indexation on CoinGecko, CoinMarketCap, DexScreener, and Birdeye immediately after liquidity pool deployment.</p>
+          <div class="announcement-footer">
+            <span class="announcement-status">Status: Pre-filed</span>
+            <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer" class="announcement-link">Telegram Alerts <span>↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Telegram Dispatch Callout -->
+      <div class="announcements-banner">
+        <div class="banner-icon">🔔</div>
+        <div class="banner-content">
+          <h4>WANT REAL-TIME ALPHA &amp; ANNOUNCEMENTS?</h4>
+          <p>All critical updates, contract addresses, and snapshot deadlines hit our official Telegram first.</p>
+        </div>
+        <a class="button button-primary banner-btn" href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Join Announcement Desk <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap">
+    <a class="brand footer-brand" href="index.html"><img src="assets/memetek-logo.png" alt=""><span>MEME<span>TEK</span></span></a>
+    <p>Where Memes Meet the Moon.</p>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#airdrop">Airdrop</a>
+      <a href="updates.html">Updates</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+    <small>© <span id="year"></span> MEMETEK. Community-powered. DYOR • NFA.</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="MEMETEK Community Meme Gallery — The finest memes, stickers, and digital artwork submitted by our community.">
+  <title>MEMETEK — Community Meme Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MEMETEK home">
+      <img src="assets/memetek-logo.png" alt="MEMETEK cat logo">
+      <span>MEME<span>TEK</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="index.html#about">About</a>
+      <a href="index.html#culture">Our culture</a>
+      <a href="index.html#airdrop">Airdrop</a>
+      <a href="updates.html">Updates</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#community">Community</a>
+      <a class="nav-cta" href="index.html#community">Join the crew <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 04 / Community Gallery -->
+    <section class="gallery section-wrap" id="gallery">
+      <div class="section-kicker">04 / CREATIVE VAULT</div>
+      <div class="gallery-header">
+        <div>
+          <h2>COMMUNITY<br><em>MEME GALLERY.</em></h2>
+        </div>
+        <p class="gallery-lead">The finest memes, stickers, and digital artwork submitted by our community. Handcrafted by degens, curators, and moon mission believers.</p>
+      </div>
+
+      <!-- 🔥 Meme Contest Banner -->
+      <div class="contest-banner">
+        <div class="contest-banner-glow"></div>
+        <div class="contest-banner-inner">
+          <div class="contest-badge-row">
+            <span class="contest-live-badge"><span class="pulse-dot"></span> CONTEST LIVE</span>
+            <span class="contest-timer-badge">⏳ Ends Nov 18, 2026</span>
+          </div>
+          <div class="contest-content">
+            <div class="contest-icon">🐈‍⬛🔥</div>
+            <h3>MEMETEK COMMUNITY MEME CONTEST IS HERE!</h3>
+            <p class="contest-tagline">It's time to show your creativity! Create your best MEMETEK memes or artwork and win real prizes.</p>
+          </div>
+          <div class="contest-details">
+            <div class="contest-detail-card">
+              <div class="contest-detail-icon">🏆</div>
+              <div class="contest-detail-text">
+                <strong>$10 EACH</strong>
+                <span>Per winning submission</span>
+              </div>
+            </div>
+            <div class="contest-detail-card">
+              <div class="contest-detail-icon">⏳</div>
+              <div class="contest-detail-text">
+                <strong>5 DAYS ONLY</strong>
+                <span>Deadline: Nov 18, 2026</span>
+              </div>
+            </div>
+            <div class="contest-detail-card">
+              <div class="contest-detail-icon">🌐</div>
+              <div class="contest-detail-text">
+                <strong>GET FEATURED</strong>
+                <span>On official website</span>
+              </div>
+            </div>
+          </div>
+          <div class="contest-steps">
+            <div class="contest-step"><span>1</span> 🎨 Create your best MEMETEK memes or artwork</div>
+            <div class="contest-step"><span>2</span> 📩 Share your submission in our Telegram group</div>
+            <div class="contest-step"><span>3</span> 🏆 Winners get <strong>$10 EACH</strong> + featured on website with your username</div>
+          </div>
+          <div class="contest-cta">
+            <a class="button button-primary" href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Submit Your Meme Now <span>↗</span></a>
+            <p class="contest-hashtags">#MEMETEK #MemeContest #Solana #CryptoCommunity</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Filter Bar -->
+      <div class="filter-bar gallery-filter-bar">
+        <button class="filter-btn active" data-gallery-filter="all">All Artworks <span class="filter-count">8</span></button>
+        <button class="filter-btn" data-gallery-filter="memes">Memes <span class="filter-count">4</span></button>
+        <button class="filter-btn" data-gallery-filter="art">Original Art <span class="filter-count">3</span></button>
+        <button class="filter-btn" data-gallery-filter="stickers">Stickers <span class="filter-count">1</span></button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Item 1 -->
+        <article class="gallery-card" data-category="memes" data-id="gallery-1">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View One Small Step for Meme-Kind artwork">
+            <span class="gallery-card-badge">✦ FEATURED</span>
+            <img src="assets/gallery/gallery-1.svg" alt="Cat astronaut planting MEMETEK flag on the moon" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#ToTheMoon</span>
+              <span class="tag">#Solana</span>
+            </div>
+            <h3>One Small Step for Meme-Kind</h3>
+            <p>One small step for a cat, one giant leap for decentralized meme culture.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">👨‍🚀</span>
+                <span class="creator-name">@sol_catronaut</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-1" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">342</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="gallery-card" data-category="art" data-id="gallery-2">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View Diamond Paws 2026 artwork">
+            <span class="gallery-card-badge">💎 LEGENDARY</span>
+            <img src="assets/gallery/gallery-2.svg" alt="Cyberpunk neon cat with diamond paws and laser eyes" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#DiamondPaws</span>
+              <span class="tag">#CyberCat</span>
+            </div>
+            <h3>Diamond Paws 2026</h3>
+            <p>Cybernetic laser vision unlocked. Selling was never programmed into the smart contract.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">⚡</span>
+                <span class="creator-name">@laser_paws</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-2" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">518</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="gallery-card" data-category="memes" data-id="gallery-3">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View The Holy God Candle artwork">
+            <span class="gallery-card-badge">🚀 VIRAL</span>
+            <img src="assets/gallery/gallery-3.svg" alt="Giant green candlestick rocket blasting to the moon" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#GodCandle</span>
+              <span class="tag">#BullMarket</span>
+            </div>
+            <h3>The Holy God Candle</h3>
+            <p>Technical analysis at its finest: green candles piercing straight through the stratosphere.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">🧙</span>
+                <span class="creator-name">@chart_wizard</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-3" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">429</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="gallery-card" data-category="art" data-id="gallery-4">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View Let The Devs Cook artwork">
+            <span class="gallery-card-badge">👨‍🍳 STAFF PICK</span>
+            <img src="assets/gallery/gallery-4.svg" alt="Cat chef stirring a boiling cauldron of code and meme coins" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#DevsCooking</span>
+              <span class="tag">#SolanaTech</span>
+            </div>
+            <h3>Let The Devs Cook</h3>
+            <p>Simmering pure open-source code with secret community seasonings in the cosmic cauldron.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">🍲</span>
+                <span class="creator-name">@crypto_chef</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-4" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">286</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="gallery-card" data-category="memes" data-id="gallery-5">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View Hyperspeed Solana Cat artwork">
+            <span class="gallery-card-badge">⚡ SPEED</span>
+            <img src="assets/gallery/gallery-5.svg" alt="Cat surfing a light beam across Solana network" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#SolanaSpeed</span>
+              <span class="tag">#Hyperspeed</span>
+            </div>
+            <h3>Hyperspeed Solana Cat</h3>
+            <p>400ms finality meets unstoppable viral energy. Leaving gas fees in the dust.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">🏄</span>
+                <span class="creator-name">@speedy_whiskers</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-5" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">377</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="gallery-card" data-category="stickers" data-id="gallery-6">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View Official Sticker Pack artwork">
+            <span class="gallery-card-badge">✨ PACK</span>
+            <img src="assets/gallery/gallery-6.svg" alt="MEMETEK sticker pack featuring HODL, Moon, and GM" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#StickerPack</span>
+              <span class="tag">#Telegram</span>
+            </div>
+            <h3>MEMETEK Sticker Vault</h3>
+            <p>Official die-cut sticker badges designed for Telegram group chats and Discord raids.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">🎨</span>
+                <span class="creator-name">@sticker_degen</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-6" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">312</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 7 -->
+        <article class="gallery-card" data-category="memes" data-id="gallery-7">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View 3 AM Terminal Trader artwork">
+            <span class="gallery-card-badge">☕ 3 AM CLUB</span>
+            <img src="assets/gallery/gallery-7.svg" alt="Cat in gaming chair staring at crypto terminal screens" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#DegenHours</span>
+              <span class="tag">#NoSleep</span>
+            </div>
+            <h3>The 3 AM Terminal Trader</h3>
+            <p>Sleep is temporary. The green candles and Telegram banter are forever.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">🎧</span>
+                <span class="creator-name">@night_owl_degen</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-7" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">464</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 8 -->
+        <article class="gallery-card" data-category="art" data-id="gallery-8">
+          <div class="gallery-media" tabindex="0" role="button" aria-label="View The Golden Genesis Cat artwork">
+            <span class="gallery-card-badge">👑 GENESIS</span>
+            <img src="assets/gallery/gallery-8.svg" alt="Sacred golden portrait of the MEMETEK cat mascot" loading="lazy">
+            <div class="gallery-zoom-hint"><span>🔍 Click to expand</span></div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-tags">
+              <span class="tag">#Genesis</span>
+              <span class="tag">#Artwork</span>
+            </div>
+            <h3>The Golden Genesis Cat</h3>
+            <p>Ornate commemorative vector piece celebrating the founding believers of the $MEMETEK ecosystem.</p>
+            <div class="gallery-footer">
+              <div class="creator-badge">
+                <span class="creator-avatar">👑</span>
+                <span class="creator-name">@pixel_queen</span>
+              </div>
+              <button class="like-btn" data-item-id="gallery-8" aria-label="Like artwork">
+                <span class="like-icon">♥</span>
+                <span class="like-count">590</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Submit Artwork Callout -->
+      <div class="gallery-cta-box">
+        <div class="cta-art-visual">🏆</div>
+        <div class="cta-art-copy">
+          <h3>🐈‍⬛🔥 MEME CONTEST — $10 PER WINNER!</h3>
+          <p>Create your best MEMETEK memes or artwork and share them in our Telegram group. Winners receive <strong>$10 EACH</strong> and get permanently featured on this page with their username. <strong>Only 5 days to participate — deadline Nov 18, 2026!</strong></p>
+        </div>
+        <a class="button button-primary" href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Join &amp; Submit <span>↗</span></a>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal for Gallery Artworks -->
+    <div class="modal-overlay gallery-lightbox" id="galleryLightbox" style="display:none;" role="dialog" aria-modal="true" aria-label="Artwork detail view">
+      <div class="lightbox-container">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close artwork view">✕</button>
+        <div class="lightbox-image-wrap">
+          <img id="lightboxImg" src="" alt="Enlarged community artwork">
+        </div>
+        <div class="lightbox-details">
+          <div class="lightbox-meta">
+            <span class="lightbox-badge" id="lightboxBadge">✦ FEATURED</span>
+            <span class="lightbox-creator" id="lightboxCreator">@creator</span>
+          </div>
+          <h2 id="lightboxTitle">Artwork Title</h2>
+          <p id="lightboxCaption">Artwork caption description here.</p>
+          <div class="lightbox-actions">
+            <button class="button button-primary" id="lightboxLikeBtn">
+              <span>♥</span> Like This Piece (<span id="lightboxLikeCount">0</span>)
+            </button>
+            <a class="button button-ghost" id="lightboxShareBtn" href="#" target="_blank" rel="noopener noreferrer">
+              Share on X ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer section-wrap">
+    <a class="brand footer-brand" href="index.html"><img src="assets/memetek-logo.png" alt=""><span>MEME<span>TEK</span></span></a>
+    <p>Where Memes Meet the Moon.</p>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#airdrop">Airdrop</a>
+      <a href="updates.html">Updates</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://t.me/+xaxYFid1vyxkZDk9" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+    <small>© <span id="year"></span> MEMETEK. Community-powered. DYOR • NFA.</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
